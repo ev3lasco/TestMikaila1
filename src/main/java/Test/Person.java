@@ -1,11 +1,17 @@
 package Test;
 
-public class Person {
+public abstract class Person implements IPayable {
     private String name;
 
 
-    public Person (String name){
+    public Person(String name){
         this.name = name;
+    }
+
+    public static void printpay(IPayable[] employees){
+        for (IPayable employee : employees) {
+            employee.calculateFinalPay();
+        }
     }
 
     public String getName() {
@@ -15,6 +21,12 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
+
+    public abstract void printBadges();
+
+
+
+
 }
 
 

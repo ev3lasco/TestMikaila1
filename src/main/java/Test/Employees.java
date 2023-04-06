@@ -1,19 +1,15 @@
 package Test;
 
-public class Employees extends Person {
+public abstract class Employees extends Person {
     private int ID = 1;
-    private double uniqueID = ++ID;
-
-
-
-
+    private static int uniqueID = 0;
 
     public Employees(String name) {
         super(name);
     }
         public void printBadges() {
             System.out.println("Welcome! " + getName());
-            System.out.println("EmployeeID :" + this.uniqueID);
+            System.out.println("EmployeeID :" + (uniqueID = ++uniqueID));
         }
 
     public int getID() {
@@ -29,6 +25,8 @@ public class Employees extends Person {
     }
 
     public void setUniqueID(int uniqueID) {
-        this.uniqueID = uniqueID;
+        Employees.uniqueID = uniqueID;
     }
+
+
 }
